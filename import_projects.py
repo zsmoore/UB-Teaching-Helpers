@@ -37,6 +37,10 @@ def confirm_user_time(section):
     if assigned_times['day'] != day:
         print('You are trying to check out outside of your assigned section')
         exit()
+    
+    ''' If we start at noon consider it 0 '''
+    if int(assigned_times['start']) == 12:
+        assigned_times['start'] = '0'
 
     ''' If we are a pm recitation adjust time '''
     if assigned_times['pm']:
