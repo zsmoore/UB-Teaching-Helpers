@@ -1,6 +1,6 @@
 {
     "host":"timberlake.cse.buffalo.edu",
-    "base":"/projects/CSE115/Repositories/Fall2017",
+    "base":"/projects/CSE115/Repositories/Fall2017/",
 
     "lab": {
         "1":"DAE88FA2",
@@ -10,6 +10,6 @@
         "1":"51F93571"
     },
     "sections": {
-        "C2": ["1", "2"]
+        "C2": ["2", "2"]
     }
 }
