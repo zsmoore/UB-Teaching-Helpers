@@ -141,11 +141,11 @@ def import_repo_into_eclipse(repos, repo_to_grab, single_repo=False):
     if single_repo:
         os.system('eclipse -nosplash -application ' +                    \
                   'org.eclipse.cdt.managedbuilder.core.headlessbuild ' + \
-                  '-importAll {0}'.format(repos[0]))
+                  '-importAll ~/{0}'.format(repos[0]))
 
     os.system('eclipse -nosplash -application ' +                     \
               'org.eclipse.cdt.managedbuilder.core.headlessbuild ' +  \
-              '-importAll {0}'.format(repos[repo_to_grab]))
+              '-importAll ~/{0}'.format(repos[repo_to_grab]))
 
     
 def convert_to_weekday_letter(day):
