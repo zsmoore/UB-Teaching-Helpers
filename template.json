@@ -1,0 +1,15 @@
+{
+    "host":"timberlake.cse.buffalo.edu",
+    "base":"/projects/CSE115/Repositories/Fall2017",
+
+    "lab": {
+        "1":"DAE88FA2",
+        "2":"8DF741EC"
+    },
+    "quiz": {
+        "1":"51F93571"
+    },
+    "sections": {
+        "C2": ["1", "2"]
+    }
+}
