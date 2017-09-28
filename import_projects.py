@@ -131,10 +131,10 @@ def get_repo_index(repo_list, to_grab):
 def git_checkout_repos(host, base, user, repos, repo_to_grab, single_repo=False):
     
     if single_repo:
-        os.system('git clone ssh://{0}@{1}{2}{3}'.format(user, host, base, repos[0]))
+        os.system('git clone ssh://{0}@{1}{2}{3} ~/'.format(user, host, base, repos[0]))
         return
 
-    os.system('git clone ssh://{0}@{1}{2}{3}'.format(user, host, base, repos[repo_to_grab]))
+    os.system('git clone ssh://{0}@{1}{2}{3} ~/'.format(user, host, base, repos[repo_to_grab]))
 
 def import_repo_into_eclipse(repos, repo_to_grab, single_repo=False):
     
