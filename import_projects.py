@@ -7,7 +7,7 @@ from collections import OrderedDict
 
 def get_user_and_section():
     ''' Load class list from pickle for safety do not hold txt version '''
-    with open('class_list.pickle', 'rb') as in_file:
+    with open(os.path.dirname(os.path.realpath(__file__)) + '/class_list.pickle', 'rb') as in_file:
         class_list = pickle.load(in_file)
 
     ''' Get user name from current user '''
@@ -22,7 +22,7 @@ def get_user_and_section():
 
 def confirm_user_time(section):
     ''' Load in section times from pickle '''
-    with open('section_times.pickle', 'rb') as in_file:
+    with open(os.path.dirname(os.path.realpath(__file__)) + '/section_times.pickle', 'rb') as in_file:
         section_times = pickle.load(in_file)
 
     ''' Grab our assigned section info '''
@@ -60,7 +60,7 @@ def confirm_user_time(section):
 
 def parse_config():
     config = None
-    with open('config.json') as config_file:
+    with open(os.path.dirname(os.path.realpath(__file__)) +'/config.json') as config_file:
         ''' We are going to use an orderedDict which allows us to enforce
             that the sections will be at the bottom and we can break on the
             key word.  Also it allows us to take the section list and rely on
@@ -88,6 +88,15 @@ def parse_config():
     ''' Assure sections are in config '''
     if 'sections' in config:
         sections = config['sections']
+
+        ''' If our sections assignments are numbers instead of strings '''
+        for section in sections:
+            for x in range(len(sections[section])):
+                ele = sections[section][x]
+                if type(ele) != str:
+                    sections[section][x] = str(ele)
+                    
+
     else:
         print('Please specify the sections in the config file')
         exit()
@@ -118,7 +127,6 @@ def get_assigned_repos(repo_list, sections, assigned_section):
                 -sections[assigned_section] to get repo index list
             Then we use the index i since we are ordered to get the
             proper repo '''
-        
         repos.append(repo_list[i][1][sections[assigned_section][i]])
     
     return repos
@@ -173,7 +181,7 @@ def convert_to_weekday_letter(day):
     return day
 
 def main():
-
+    
     res_tup = get_user_and_section()
 
     user = res_tup[0]
