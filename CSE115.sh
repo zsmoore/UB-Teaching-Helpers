@@ -1,9 +1,9 @@
 #!/bin/bash
 
-if (ps ax | grep -v grep | grep eclipse > /dev/null)
+if (ps x | grep -v grep | grep eclipse > /dev/null)
 then
 	echo "Please close eclipse."
-        while (ps ax | grep -v grep | grep eclipse > /dev/null)
+        while (ps x | grep -v grep | grep eclipse > /dev/null)
         do
 		sleep .5
         done
